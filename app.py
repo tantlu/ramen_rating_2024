@@ -34,15 +34,15 @@ def main():
     
     # List of all features
     features = [
-        "IsSpicy", "HasChicken", "HasBeef", "HasSeafoods", "With_Cup", "With_Other", "With_Pack", "With_Tray",
-        "from_Acecook", "from_Indomie", "from_Itsuki", "from_JML", "from_KOKA", "from_Lucky Me!", 
-        "from_MAMA", "from_Maggi", "from_Mama", "from_Mamee", "from_Maruchan", "from_Master Kong", 
-        "from_MyKuali", "from_Myojo", "from_Nissin", "from_Nongshim", "from_Other", "from_Ottogi", 
-        "from_Paldo", "from_Samyang Foods", "from_Sapporo Ichiban", "from_Sau Tao", "from_Sichuan Baijia", 
-        "from_Ve Wong", "from_Vedan", "from_Vifon", "from_Vina Acecook", "from_Wai Wai", "from_Wei Lih", 
-        "from_Wu-Mu", "In_Hong Kong", "In_Indonesia", "In_Japan", "In_Malaysia", "In_Other", "In_Singapore", 
-        "In_South Korea", "In_Taiwan", "In_Thailand", "In_United States", "In_Vietnam"
+    "IsSpicy", "HasChicken", "HasBeef", "HasSeafoods", "With_Bowl", "With_Cup", "With_Other",
+    "With_Pack", "With_Tray", "from_Acecook", "from_Indomie", "from_KOKA", "from_Lucky Me!", "from_MAMA",
+    "from_Maggi", "from_Mama", "from_Mamee", "from_Maruchan", "from_MyKuali", "from_Myojo", "from_Nissin",
+    "from_Nongshim", "from_Other", "from_Ottogi", "from_Paldo", "from_Samyang Foods", "from_Sapporo Ichiban",
+    "from_Sau Tao", "from_Ve Wong", "from_Vifon", "from_Vina Acecook", "from_Wai Wai", "In_China",
+    "In_Hong Kong", "In_Indonesia", "In_Japan", "In_Malaysia", "In_Other", "In_Singapore", "In_South Korea",
+    "In_Taiwan", "In_Thailand", "In_United States"
     ]
+
     
     # Create input fields for each feature
     inputs = {}

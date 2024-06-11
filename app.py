@@ -40,7 +40,7 @@ def main():
     "from_Nongshim", "from_Other", "from_Ottogi", "from_Paldo", "from_Samyang Foods", "from_Sapporo Ichiban",
     "from_Sau Tao", "from_Ve Wong", "from_Vifon", "from_Vina Acecook", "from_Wai Wai", "In_China",
     "In_Hong Kong", "In_Indonesia", "In_Japan", "In_Malaysia", "In_Other", "In_Singapore", "In_South Korea",
-    "In_Taiwan", "In_Thailand", "In_United States"
+    "In_Taiwan", "In_Thailand", "In_United States", "In_Vietnam"
     ]
 
     

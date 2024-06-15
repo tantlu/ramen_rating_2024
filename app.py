@@ -11,10 +11,8 @@ tree_model = pickle.load(open('Tree_Model.pkl', 'rb'))
 def classify(num):
     if num == 0:
         return 'Không ngon'
-    elif num == 1:
-        return 'Ngon'
     else:
-        return 'Unknown'
+        return 'Ngon'
 
 def main():
     st.title("Ramen Classification")

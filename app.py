@@ -62,8 +62,6 @@ def main():
         else:  # RandomForestClassifier
             prediction = forest_model.predict(input_array)
         
-        st.write("Prediction:", prediction)
-        
         result = classify(prediction[0])
         st.success(result)
 

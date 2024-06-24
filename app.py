@@ -15,28 +15,28 @@ def classify(num):
         return 'Ngon'
 
 def main():
-    st.title("Ramen Classification")
+    st.title("Phân lớp Ramen")
     
     # HTML template for header
     html_temp = """
     <div style="background-color:#006600; padding:10px">
-    <h2 style="color:white;text-align:center;">Ramen Classification</h2>
+    <h2 style="color:white;text-align:center;">Phân lớp Ramen</h2>
     </div>
     """
     st.markdown(html_temp, unsafe_allow_html=True)
     
     # Model selection
     activities = ['LogisticRegression', 'DecisionTreeClassifier', 'RandomForestClassifier']
-    option = st.sidebar.selectbox('Which model would you like to use?', activities)
+    option = st.sidebar.selectbox('Chọn Model mà bạn muốn sử dụng', activities)
     st.subheader(option)
     
     # List of all features
     features = [
     "IsSpicy", "HasChicken", "HasBeef", "HasSeafoods", "With_Bowl", "With_Cup", "With_Other", 
-    "With_Pack", "With_Tray", "from_Acecook", "from_Indomie", "from_KOKA", "from_Lucky Me!", "from_MAMA", 
+    "With_Pack", "With_Tray", "from_Acecook", "from_Indomie", "from_KOKA", "from_Lucky Me!", 
     "from_Maggi", "from_Mama", "from_Mamee", "from_Maruchan", "from_MyKuali", "from_Myojo", "from_Nissin", 
     "from_Nongshim", "from_Other", "from_Ottogi", "from_Paldo", "from_Samyang Foods", "from_Sapporo Ichiban", 
-    "from_Sau Tao", "from_Vifon", "from_Vina Acecook", "In_China", "In_Hong Kong", "In_Indonesia", "In_Japan", 
+    "from_Sau Tao", "from_Ve Wong", "from_Vifon", "from_Vina Acecook", "In_China", "In_Hong Kong", "In_Indonesia", "In_Japan", 
     "In_Malaysia", "In_Other", "In_Singapore", "In_South Korea", "In_Taiwan", "In_Thailand", "In_United States", 
     "In_Vietnam"
 ]

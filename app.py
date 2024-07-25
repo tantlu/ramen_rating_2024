@@ -30,23 +30,40 @@ def main():
     option = st.sidebar.selectbox('Chọn Model mà bạn muốn sử dụng', activities)
     st.subheader(option)
     
-    # List of all features
-    features = [
-    "IsSpicy", "HasChicken", "HasBeef", "HasSeafoods", "With_Bowl", "With_Cup", "With_Other", 
-    "With_Pack", "With_Tray", "from_Acecook", "from_Indomie", "from_KOKA", "from_Lucky Me!", 
-    "from_Maggi", "from_Mama", "from_Mamee", "from_Maruchan", "from_MyKuali", "from_Myojo", "from_Nissin", 
-    "from_Nongshim", "from_Other", "from_Ottogi", "from_Paldo", "from_Samyang Foods", "from_Sapporo Ichiban", 
-    "from_Sau Tao", "from_Ve Wong", "from_Vifon", "from_Vina Acecook", "In_China", "In_Hong Kong", "In_Indonesia", "In_Japan", 
-    "In_Malaysia", "In_Other", "In_Singapore", "In_South Korea", "In_Taiwan", "In_Thailand", "In_United States", 
-    "In_Vietnam"
-]
+    # Define feature groups
+    base_features = ["IsSpicy", "HasChicken", "HasBeef", "HasSeafoods"]
+    style_features = ["With_Bowl", "With_Cup", "With_Other", "With_Pack", "With_Tray"]
+    brand_features = ["from_Acecook", "from_Indomie", "from_KOKA", "from_Lucky Me!", "from_Maggi", 
+                      "from_Mama", "from_Mamee", "from_Maruchan", "from_MyKuali", "from_Myojo", 
+                      "from_Nissin", "from_Nongshim", "from_Other", "from_Ottogi", "from_Paldo", 
+                      "from_Samyang Foods", "from_Sapporo Ichiban", "from_Sau Tao", "from_Ve Wong", 
+                      "from_Vifon", "from_Vina Acecook"]
+    country_features = ["In_China", "In_Hong Kong", "In_Indonesia", "In_Japan", "In_Malaysia", 
+                       "In_Other", "In_Singapore", "In_South Korea", "In_Taiwan", "In_Thailand", 
+                       "In_United States", "In_Vietnam"]
 
-    
-    # Create input fields for each feature
+    # Create input fields for each feature group
     inputs = {}
-    for feature in features:
-        inputs[feature] = st.number_input(f"{feature}", min_value=0, max_value=1, value=0, key=feature)
-    
+
+    # Base features
+    for feature in base_features:
+        inputs[feature] = st.radio(f"{feature}", options=[0, 1], index=0, key=feature)
+
+    # Container features
+    selected_container = st.radio("Style", options=style_features, index=0)
+    for feature in style_features:
+        inputs[feature] = 1 if feature == selected_container else 0
+
+    # Brand features
+    selected_brand = st.radio("Brand", options=brand_features, index=0)
+    for feature in brand_features:
+        inputs[feature] = 1 if feature == selected_brand else 0
+
+    # Region features
+    selected_region = st.radio("Country", options=country_features, index=0)
+    for feature in country_features:
+        inputs[feature] = 1 if feature == selected_region else 0
+
     # Convert the input dictionary to a list of values
     input_values = list(inputs.values())
 

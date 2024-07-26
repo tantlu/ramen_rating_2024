@@ -15,12 +15,12 @@ def classify(num):
         return 'Ngon'
 
 def main():
-    st.title("Phân lớp Ramen")
+    st.title("Phân lớp Mì Ramen")
     
     # HTML template for header
     html_temp = """
     <div style="background-color:#006600; padding:10px">
-    <h2 style="color:white;text-align:center;">Phân lớp Ramen</h2>
+    <h2 style="color:white;text-align:center;">Phân lớp Mì Ramen</h2>
     </div>
     """
     st.markdown(html_temp, unsafe_allow_html=True)
@@ -32,7 +32,7 @@ def main():
     
     # Define feature groups
     base_features = ["IsSpicy", "HasChicken", "HasBeef", "HasSeafoods"]
-    style_features = ["With_Bowl", "With_Cup", "With_Other", "With_Pack", "With_Tray"]
+    styles_features = ["With_Bowl", "With_Cup", "With_Other", "With_Pack", "With_Tray"]
     brand_features = ["from_Acecook", "from_Indomie", "from_KOKA", "from_Lucky Me!", "from_Maggi", 
                       "from_Mama", "from_Mamee", "from_Maruchan", "from_MyKuali", "from_Myojo", 
                       "from_Nissin", "from_Nongshim", "from_Other", "from_Ottogi", "from_Paldo", 
@@ -46,23 +46,24 @@ def main():
     inputs = {}
 
     # Base features
-    for feature in base_features:
-        inputs[feature] = st.radio(f"{feature}", options=[0, 1], index=0, key=feature)
+    base_cols = st.columns(4)
+    for idx, feature in enumerate(base_features):
+        inputs[feature] = base_cols[idx % 4].radio(f"{feature}", options=[0, 1], index=0, key=feature)
 
-    # Container features
-    selected_container = st.radio("Style", options=style_features, index=0)
-    for feature in style_features:
-        inputs[feature] = 1 if feature == selected_container else 0
+    # styles features
+    selected_styles = st.selectbox("Styles", options=styles_features, index=0)
+    for feature in styles_features:
+        inputs[feature] = 1 if feature == selected_styles else 0
 
     # Brand features
-    selected_brand = st.radio("Brand", options=brand_features, index=0)
+    selected_brand = st.selectbox("Brand", options=brand_features)
     for feature in brand_features:
         inputs[feature] = 1 if feature == selected_brand else 0
 
-    # Region features
-    selected_region = st.radio("Country", options=country_features, index=0)
+    # Country features
+    selected_country = st.selectbox("Country", options=country_features)
     for feature in country_features:
-        inputs[feature] = 1 if feature == selected_region else 0
+        inputs[feature] = 1 if feature == selected_country else 0
 
     # Convert the input dictionary to a list of values
     input_values = list(inputs.values())

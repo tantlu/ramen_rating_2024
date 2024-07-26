@@ -10,9 +10,9 @@ tree_model = pickle.load(open('Tree_Model.pkl', 'rb'))
 # Classification function
 def classify(num):
     if num == 0:
-        return 'Không ngon'
+        return 'Mì ramen không ngon'
     else:
-        return 'Ngon'
+        return 'Mì ramen ngon'
 
 def main():
     st.title("Phân lớp Mì Ramen")
